@@ -17,9 +17,8 @@ const Login = async (req, res) => {
       return res.status(400).json({ msg: 'Credentials Not Matched!' });
 
     // check if tpo has approved student
-    if (!user.studentProfile.isApproved) 
-      return res.status(400).json({ msg: 'TPO has not approved you application, please try after some time!' });
-    
+    // if (!user.studentProfile.isApproved) 
+    //   return res.status(400).json({ msg: 'TPO has not approved you application, please try after some time!' });
 
     const payload = { userId: user.id };
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });

@@ -103,7 +103,11 @@ function AllCompany() {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/tpo/jobs`);
+      const response = await axios.get(`${BASE_URL}/tpo/jobs`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
       setJobs(response.data.data);
     } catch (error) {
       console.log("Error fetching jobs ", error);
@@ -198,25 +202,20 @@ function AllCompany() {
                           {company?.companyLocation}
                         </td>
                         <td>
-                          {
-                            company?.companyDifficulty === "Easy" && (
-                              <span className='bg-green-500 text-white px-2 py-1 rounded'>{company?.companyDifficulty}</span>
-                            )
-                          }
-                          {
-                            company?.companyDifficulty === "Moderate" && (
-                              <span className='bg-orange-500 text-white px-2 py-1 rounded'>{company?.companyDifficulty}</span>
-                            )
-                          }
-                          {
-                            company?.companyDifficulty === "Hard" && (
-                              <span className='bg-red-500 text-white px-2 py-1 rounded'>{company?.companyDifficulty}</span>
-                            )
-                          }
+                          {company?.companyDifficulty === "Easy" && (
+                            <span className='bg-green-500 text-white px-2 py-1 rounded'>{company?.companyDifficulty}</span>
+                          )}
+                          {company?.companyDifficulty === "Moderate" && (
+                            <span className='bg-orange-500 text-white px-2 py-1 rounded'>{company?.companyDifficulty}</span>
+                          )}
+                          {company?.companyDifficulty === "Hard" && (
+                            <span className='bg-red-500 text-white px-2 py-1 rounded'>{company?.companyDifficulty}</span>
+                          )}
                         </td>
                         <td>
-                          {
-                            jobs.filter(job => job?.company == company?._id).length
+                          {jobs.length
+                            ? jobs?.filter(job => job?.company == company?._id)?.length
+                            : ""
                           }
                         </td>
                         <td>

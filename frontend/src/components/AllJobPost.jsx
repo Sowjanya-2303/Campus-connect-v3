@@ -55,7 +55,11 @@ function AllJobPost() {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/tpo/jobs`);
+      const response = await axios.get(`${BASE_URL}/tpo/jobs`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
       setJobs(response.data.data);
       fetchCompanies(response.data.data);
     } catch (error) {
@@ -72,7 +76,11 @@ function AllJobPost() {
     for (const job of jobs) {
       if (job.company && !companyNames[job.company]) {
         try {
-          const response = await axios.get(`${BASE_URL}/company/company-data?companyId=${job.company}`);
+          const response = await axios.get(`${BASE_URL}/company/company-data?companyId=${job.company}`, {
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+          });
           companyNames[job.company] = response.data.company.companyName;
         } catch (error) {
           console.log("Error fetching company name => ", error);

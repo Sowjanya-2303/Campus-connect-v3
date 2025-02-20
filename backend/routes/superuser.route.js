@@ -36,7 +36,4 @@ router.post('/student-delete-user', authenticateToken, studentDeleteUsers);
 router.post('/student-approve', authenticateToken, studentApprove);
 
 
-
-
-
 module.exports = router;

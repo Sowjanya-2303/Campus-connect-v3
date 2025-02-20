@@ -21,10 +21,10 @@ router.post('/login', Login);
 router.post('/post-job', authenticateToken, PostJob);
 
 // all jobs 
-router.get('/jobs', AllJobs);
+router.get('/jobs',authenticateToken, AllJobs);
 
 // delete job 
-router.post('/delete-job', DeleteJob);
+router.post('/delete-job',authenticateToken, DeleteJob);
 
 // view a job 
 router.get('/job/:jobId', authenticateToken, JobData);

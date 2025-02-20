@@ -20,7 +20,7 @@ const UserData = require('../controllers/user/user.show-data.js');
 router.get('/detail', authenticateToken, UserDetail);
 
 // all user in lenght 
-router.get('/all-users', AllUsersLen);
+router.get('/all-users', authenticateToken, AllUsersLen);
 
 router.get('/:userId', authenticateToken, UserData);
 

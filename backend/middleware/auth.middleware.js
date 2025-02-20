@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const StudentUser = require('../models/user.model');
+const User = require('../models/user.model');
 
 const authenticateToken = async (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');
@@ -10,7 +10,7 @@ const authenticateToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Find the user with the matching token
-    const user = await StudentUser.findOne({ _id: decoded.userId, token });
+    const user = await User.findOne({ _id: decoded.userId, token });
 
     if (!user) return res.status(401).json({ msg: 'Token is not valid! Plase Login.' });
     // console.log(user);

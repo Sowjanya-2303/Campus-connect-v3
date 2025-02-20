@@ -38,16 +38,18 @@ function AddCompany() {
   }
 
   const confirmSubmit = async () => {
+    const url = companyId
+      ? `${BASE_URL}/company/update-company?companyId=${companyId}`
+      : `${BASE_URL}/company/add-company`;
     try {
-      const response = await axios.post(`${BASE_URL}/company/add-company`,
-        data,
+      const response = await axios.post(url, data,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           }
         }
       )
-      if (response?.data?.msg === "Company Created Successfully!") {
+      if (response?.status === 201) {
         setShowModal(false);
         setToastMessage(response?.data?.msg);
         const dataToPass = {
@@ -56,13 +58,11 @@ function AddCompany() {
         }
         navigate('../tpo/companys', { state: dataToPass });
       }
-      if (response?.data?.msg === "Company Name Already Exist!") {
-        setShowModal(false);
-        setToastMessage(response?.data?.msg);
-        setShowToast(true);
-      }
     } catch (error) {
       console.log("AddCompany error while fetching => ", error);
+      setShowModal(false);
+      setToastMessage(error?.response?.data?.msg);
+      setShowToast(true);
     }
   }
 
@@ -199,7 +199,13 @@ function AddCompany() {
                 }
               </div>
               <div className="flex flex-col justify-center items-center gap-2">
-                <Button variant="primary" type='submit' size='lg'>Add Company</Button>
+                <Button variant="primary" type='submit' size='lg'>
+                  {
+                    companyId
+                      ? 'Update Company'
+                      : 'Add Company'
+                  }
+                </Button>
               </div>
             </Form>
           </>

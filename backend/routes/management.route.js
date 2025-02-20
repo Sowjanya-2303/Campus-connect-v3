@@ -37,9 +37,9 @@ router.post('/send-notice', authenticateToken, SendNotice);
 
 router.get('/get-all-notices', authenticateToken, GetAllNotice);
 
-router.get('/get-notice', GetNotice);
+router.get('/get-notice', authenticateToken, GetNotice);
 
-router.post('/delete-notice', DeleteNotice);
+router.post('/delete-notice', authenticateToken, DeleteNotice);
 
 
 module.exports = router;

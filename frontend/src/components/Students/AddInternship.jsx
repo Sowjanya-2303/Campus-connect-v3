@@ -51,7 +51,11 @@ function AddInternship() {
     try {
       // if no studentId or internshipId then return back none 
       if (!currentUserData?.id || !internshipId) return;
-      const response = await axios.get(`${BASE_URL}/student/internship?studentId=${currentUserData?.id}&internshipId=${internshipId}`);
+      const response = await axios.get(`${BASE_URL}/student/internship?studentId=${currentUserData?.id}&internshipId=${internshipId}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
       // console.log(response?.data);
       setInternship(response.data.internship);
       setModalBody(response.data.internship.companyName);
@@ -96,7 +100,11 @@ function AddInternship() {
 
   const confirmSubmit = async () => {
     try {
-      const response = await axios.post(`${BASE_URL}/student/update-internship?studentId=${currentUserData?.id}&internshipId=${internshipId}`, { internship });
+      const response = await axios.post(`${BASE_URL}/student/update-internship?studentId=${currentUserData?.id}&internshipId=${internshipId}`, { internship }, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
       // console.log(response?.data);
       if (response?.data?.msg) {
         setToastMessage(response?.data?.msg);

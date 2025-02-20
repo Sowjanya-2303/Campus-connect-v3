@@ -146,7 +146,7 @@ function AddNewUser() {
           if (data?.sendMail === true) {
             // Redirect to mail client with a defined subject and body
             const subject = encodeURIComponent("Welcome to the Our College Placement Portal!");
-            const body = encodeURIComponent(`Hi ${data.first_name},\n\nWelcome to our college plcamenet portal. Happy hiring!\nNote:\nYour ID: ${data.email}\nPassword: ${data.password}\n\nMake sure you change password as soon as possible!!!\n\nBest regards,\nManagement Team`);
+            const body = encodeURIComponent(`Hi ${data.first_name},\n\nWelcome to our college placement portal. Happy hiring!\nNote:\nYour ID: ${data.email}\nPassword: ${data.password}\n\nMake sure you change password as soon as possible!!!\n\nBest regards,\nManagement Team`);
 
             // Create a temporary anchor element
             const mailtoLink = document.createElement('a');

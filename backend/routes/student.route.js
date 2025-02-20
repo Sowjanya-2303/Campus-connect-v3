@@ -39,23 +39,23 @@ router.post('/upload-resume', uploadResume.single('resume'), UploadResume);
 // Route to upload offer letter
 router.post('/upload-offer-letter', uploadOfferLetter.single('offerLetter'), UploadOfferLetter);
 // Route to delete offer letter
-router.post('/delete-offer-letter/:jobId/:studentId', DeleteOfferLetter);
+router.post('/delete-offer-letter/:jobId/:studentId', authenticateToken, DeleteOfferLetter);
 
 // apply to job
-router.put('/job/:jobId/:studentId', AppliedToJob);
+router.put('/job/:jobId/:studentId', authenticateToken, AppliedToJob);
 
 // check applied or not to job
-router.get('/check-applied/:jobId/:studentId', CheckAlreadyApplied);
+router.get('/check-applied/:jobId/:studentId', authenticateToken, CheckAlreadyApplied);
 
 // update job status
-router.post('/update-status/:jobId/:studentId', UpdateJobStatus);
+router.post('/update-status/:jobId/:studentId', authenticateToken, UpdateJobStatus);
 
 // get all internship of a student
-router.get('/internship', GetInternships);
+router.get('/internship', authenticateToken, GetInternships);
 // update internship of a student
-router.post('/update-internship', UpdateInternship);
+router.post('/update-internship', authenticateToken, UpdateInternship);
 // delete internship of a student
-router.post('/delete-internship', DeleteInternship);
+router.post('/delete-internship', authenticateToken, DeleteInternship);
 
 
 

@@ -6,7 +6,7 @@ const router = express.Router();
 const authenticateToken = require('../middleware/auth.middleware');
 
 
-const { AddCompany, CompanyDetail, AllCompanyDetail, DeleteCompany } = require('../controllers/Company/company.all-company.controller');
+const { AddCompany, UpdateCompany, CompanyDetail, AllCompanyDetail, DeleteCompany } = require('../controllers/Company/company.all-company.controller');
 
 
 
@@ -16,9 +16,11 @@ router.get('/company-detail', authenticateToken, AllCompanyDetail);
 // company details 
 router.post('/add-company', authenticateToken, AddCompany);
 
+router.post('/update-company', authenticateToken, UpdateCompany);
+
 router.post('/delete-company', authenticateToken, DeleteCompany);
 
-router.get('/company-data', CompanyDetail);
+router.get('/company-data', authenticateToken, CompanyDetail);
 
 
 

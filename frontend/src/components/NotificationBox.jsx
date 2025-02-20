@@ -39,7 +39,7 @@ function NotificationBox() {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         }
       });
-      const students = response.data.studentsWithJobDetails;
+      const students = response?.data?.studentsWithJobDetails;
 
       // Filtering students with 'interview' or 'hired' status
       const filteredJobs = students.map(student => {

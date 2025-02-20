@@ -58,7 +58,11 @@ function AddInternship() {
   const fetchInternships = async () => {
     try {
       if (!currentUser?.id) return;
-      const response = await axios.get(`${BASE_URL}/student/internship?studentId=${currentUser?.id}`);
+      const response = await axios.get(`${BASE_URL}/student/internship?studentId=${currentUser?.id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
       setInternships(response.data.internships);
       // console.log(response.data);
       if (response?.data?.msg) {
@@ -89,7 +93,11 @@ function AddInternship() {
 
   const confirmDelete = async (internshipId) => {
     try {
-      const response = await axios.post(`${BASE_URL}/student/delete-internship`, { internshipId, studentId: currentUser.id });
+      const response = await axios.post(`${BASE_URL}/student/delete-internship`, { internshipId, studentId: currentUser.id }, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        }
+      });
 
       setShowModal(false);
       fetchInternships();
