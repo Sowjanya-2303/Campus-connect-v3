@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 // import multer for user profile update 
-const uploadUserProfile = require('../config/MulterProfilePhoto.js');
+const upload = require('../config/Multer.js');
 
 const authenticateToken = require('../middleware/auth.middleware');
 
@@ -24,7 +24,7 @@ router.get('/all-users', authenticateToken, AllUsersLen);
 
 router.get('/:userId', authenticateToken, UserData);
 
-router.post('/upload-photo', uploadUserProfile.single('profileImgs'), UpdatePhoto);
+router.post('/upload-photo', upload.single('profileImgs'), UpdatePhoto);
 
 router.post('/update-profile', authenticateToken, UpdateProfile);
 

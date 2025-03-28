@@ -31,11 +31,7 @@ const UserDetail = async (req, res) => {
       addmissionYear: `${req.user.studentProfile.addmissionYear}`,
       gap: `${req.user.studentProfile.gap}`,
       liveKT: `${req.user.studentProfile.liveKT}`,
-      resume: {
-        filename: `${req.user.studentProfile.resume.filename}`,
-        filepath: `${req.user.studentProfile.resume.filepath}`,
-        contentType: `${req.user.studentProfile.resume.contentType}`,
-      },
+      resume: `${req.user.studentProfile.resume}`,
       SGPA: {
         sem1: `${req.user.studentProfile.SGPA.sem1}`,
         sem2: `${req.user.studentProfile.SGPA.sem2}`,

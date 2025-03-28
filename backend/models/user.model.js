@@ -14,7 +14,10 @@ const UserSchema = new mongoose.Schema({
   number: { type: Number, },
   password: { type: String, required: true },
   role: { type: String, enum: ['student', 'tpo_admin', 'management_admin', 'superuser'], required: true },
-  profile: { type: String, default: '/profileImgs/default/defaultProfileImg.jpg', },
+  profile: {
+    type: String,
+    default: 'https://res.cloudinary.com/dgu6xwnzx/image/upload/v1743159225/defaultProfileImg_cmmurk.jpg',
+  },
   fullAddress: {
     address: { type: String },
     pincode: { type: Number }
@@ -27,17 +30,7 @@ const UserSchema = new mongoose.Schema({
   studentProfile: {
     isApproved: { type: Boolean },
     rollNumber: { type: Number },
-    resume: {
-      filename: {
-        type: String,
-      },
-      filepath: {
-        type: String,
-      },
-      contentType: {
-        type: String,
-      }
-    },
+    resume: { type: String, },
     UIN: { type: String, unique: true, sparse: true, trim: true },
     department: { type: String, enum: ['Computer', 'Civil', 'ECS', 'AIDS', 'Mechanical'] },
     year: { type: Number, enum: [1, 2, 3, 4] },

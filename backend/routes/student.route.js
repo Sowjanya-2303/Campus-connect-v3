@@ -4,9 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 // import multer for student resume upadate 
-const uploadResume = require('../config/MulterResume.js');
-// import multer for student offer letter 
-const uploadOfferLetter = require('../config/MulterOfferLetter.js');
+const upload = require('../config/Multer.js');
 
 const authenticateToken = require('../middleware/auth.middleware');
 
@@ -34,10 +32,10 @@ router.post('/login', Login);
 
 
 // Route to upload resume
-router.post('/upload-resume', uploadResume.single('resume'), UploadResume);
+router.post('/upload-resume', upload.single('resume'), UploadResume);
 
 // Route to upload offer letter
-router.post('/upload-offer-letter', uploadOfferLetter.single('offerLetter'), UploadOfferLetter);
+router.post('/upload-offer-letter', upload.single('offerLetter'), UploadOfferLetter);
 // Route to delete offer letter
 router.post('/delete-offer-letter/:jobId/:studentId', authenticateToken, DeleteOfferLetter);
 

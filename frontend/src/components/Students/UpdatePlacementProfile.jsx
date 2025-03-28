@@ -69,7 +69,7 @@ function UpdatePlacementProfile() {
 
     try {
       const token = localStorage.getItem('token');
-      
+
       const response = await axios.post(`${BASE_URL}/user/update-profile`,
         // for sending to backend is user is completing profile
         userData,
@@ -199,25 +199,23 @@ function UpdatePlacementProfile() {
 
                         {/* Profile Picture */}
                         <Col xs={5} md={4} className="flex justify-end items-start rounded">
-                          <Image src={BASE_URL + userData?.profile} thumbnail />
+                          <Image src={userData?.profile} thumbnail />
                         </Col>
                       </div>
                       <div className="grid grid-cols-2">
                         {/* resume upload  */}
                         <UploadResume fetchCurrentUserData={fetchCurrentUserData} /> {/* passing function to update userData */}
-                        {
-                          (userData?.studentProfile?.resume?.filepath !== "undefined") && (
-                            <div className="py-2 px-2">
-                              <span className='bg-blue-500 py-1 pr-2 rounded cursor-pointer hover:bg-blue-700'>
-                                <a href={BASE_URL + userData?.studentProfile?.resume?.filepath} target='_blanck' className='no-underline text-white'>
-                                  <i className="fa-regular fa-eye px-2" />
-                                  View Resume
-                                </a>
-                              </span>
-                              <p className='text-sm text-gray-500 mt-1'>{userData?.studentProfile?.resume?.filename}</p>
-                            </div>
-                          )
-                        }
+                        {(userData?.studentProfile?.resume?.filepath !== "undefined") && (
+                          <div className="py-2 px-2">
+                            <span className='bg-blue-500 py-1 pr-2 rounded cursor-pointer hover:bg-blue-700'>
+                              <a href={userData?.studentProfile?.resume} target='_blanck' className='no-underline text-white'>
+                                <i className="fa-regular fa-eye px-2" />
+                                View Resume
+                              </a>
+                            </span>
+                            <p className='text-sm text-gray-500 mt-1'>{userData?.studentProfile?.resume?.filename}</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

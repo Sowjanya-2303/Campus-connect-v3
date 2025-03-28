@@ -338,7 +338,7 @@ function Account() {
                 <div className="bg-white p-6 rounded-lg shadow-md w-full max-sm:col-span-2">
                   <div className="">
                     <Form className='flex flex-col justify-center items-center gap-3 text-center'>
-                      <img src={BASE_URL + data.profile} alt="Profile Img" width="150" height="150" className='rounded-full' />
+                      <img src={data.profile} alt="Profile Img" width="150" height="150" className='rounded-full' />
                       <Form.Group controlId="formFile" className="mb-3 text-xl" onChange={handlePhotoChange}>
                         <Form.Label>{data.first_name + " " + data.middle_name + " " + data.last_name}</Form.Label>
                         <Form.Control type="file" accept=".jpg, .jpeg, .png" />

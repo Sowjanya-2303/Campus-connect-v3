@@ -143,7 +143,7 @@ const Sidebar = ({ isSidebarVisible }) => {
 
           {/* User Profile */}
           <div className="flex justify-center items-center cursor-pointer bg-blue-100" onClick={toggleDropdown}>
-            <img src={`${BASE_URL}${loadData.profile}`} alt="Profile Img" width="45px" className="mx-2 my-2 rounded-2xl transition-all duration-300 shadow-md" />
+            <img src={loadData.profile} alt="Profile Img" width="45px" className="mx-2 my-2 rounded-2xl transition-all duration-300 shadow-md" />
             <div className="w-full">
               <div className="flex flex-col justify-center py-1">
                 <h2 className="text-base font-semibold">{loadData.name}</h2>
