@@ -1,4 +1,4 @@
-# College Placement Management System
+# MRU Placement Management System
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -10,7 +10,7 @@
 - [Contributors](#contributors)
 
 ## Introduction
-The **College Placement Management System** is a web application designed to streamline the placement process in educational institutions. This system provides distinct roles for students, TPO (Training and Placement Officer) admin, management admin, and super admin, ensuring a smooth and efficient workflow.
+The **Placement Management System** is a web application designed to streamline the placement process in educational institutions. This system provides distinct roles for students, TPO (Training and Placement Officer) admin, management admin, and super admin, ensuring a smooth and efficient workflow.
 
 ## Features
 - **Student Portal**: Students can view available job opportunities, apply for placements, and track their application status.
