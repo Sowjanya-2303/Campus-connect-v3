@@ -16,7 +16,7 @@ function LandingHeroPage() {
     <>
       <div id='home' className='flex flex-col justify-center items-center gap-8' style={style.container}>
         <h3 className='text-5xl bg-yellow-200 p-2 rounded-full max-md:text-4xl max-sm:text-2xl'>
-          RCOE PLACEMENT PORTAL
+          MRU PLACEMENT PORTAL
         </h3>
         <div className='flex justify-center items-center'>
           <div className="flex justify-center items-center gap-4 max-md:flex-col">

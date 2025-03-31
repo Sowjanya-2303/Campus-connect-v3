@@ -12,11 +12,11 @@ function Footer({ isSidebarVisible }) {
               target='_blanck'
               className='cursor-pointer font-bold text-blue-500 no-underline hover:text-blue-700'
             >
-              Moin MN
+             
             </a>
           </span>
           <span className="px-1 cursor-pointer font-bold text-blue-500 hover:text-blue-700">
-            & Team
+           
           </span>
         </div>
 
