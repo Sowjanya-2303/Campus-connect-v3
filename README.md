@@ -84,8 +84,8 @@ The **College Placement Management System** is a web application designed to str
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/moinmn/college-placement-management-system.git
-cd college-placement-management-system
+git clone https://github.com/Sowjanya-2303/Campus-connect-v3.git
+cd Campus-connect-v3
 ```
 
 ### Backend Setup
@@ -122,7 +122,6 @@ cd college-placement-management-system
    ```
    
 ## Contributors
-- **Member 1**: [Moin MN](https://www.linkedin.com/in/moinnaik/)
-- **Member 2**: Rafat Muskan Shaikh
-- **Member 3**: Saquib Patel
-- **Member 4**: Neeraj Kumar
+- **Member 1**: J.Sowjanya Reddy
+- **Member 2**: G.Thanmai Reddy
+- **Member 3**: G.chaithya Reddy
